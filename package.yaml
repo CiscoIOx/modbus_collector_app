@@ -1,0 +1,20 @@
+descriptor-schema-version: 2.2
+
+info:
+  name: MqttApp
+  description: "Get the data from Mqtt broker and push the same to upstream"
+  version: "2.0"
+  author-link: "http://www.cisco.com"
+  author-name: "Cisco Systems"
+
+app:
+  cpuarch: "x86_64"
+  type: docker
+
+  resources:
+    profile: c1.small
+
+# Specify runtime and startup
+  startup:
+    rootfs: rootfs.tar
+    target: ["python", "/usr/bin/mqtt_app.py"]
